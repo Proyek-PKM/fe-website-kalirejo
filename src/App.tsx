@@ -1,19 +1,24 @@
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Tentang from "./components/Tentang";
-import Layanan from "./components/Layanan";
-import Footer from "./components/Footer";
-//import { Leaf, ArrowUp } from "lucide-react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DashboardLayout from "./components/DashboardLayout";
+import Dashboard from "../pages/Dashboard";
+// import Laporan from "../pages/Laporan";
+// import InformasiDesa from "../pages/InformasiDesa";
+// import RiwayatPesan from "../pages/RiwayatPesan";
+// import LogRealtime from ",./pages/LogRealTime";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Hero />
-      <Tentang />
-      <Layanan />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+          {/* <Route path="laporan" element={<Laporan />} />
+          <Route path="informasi-desa" element={<InformasiDesa />} />
+          <Route path="riwayat-pesan" element={<RiwayatPesan />} />
+          <Route path="log-realtime" element={<LogRealtime />} /> */}
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
