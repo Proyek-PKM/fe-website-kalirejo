@@ -9,7 +9,7 @@ function DashboardLayout() {
       />
       <div className="h-screen w-screen bg-[#b8bec6] p-5">
         <section className="flex h-full w-full cursor-default overflow-hidden rounded-2xl">
-          <aside className="flex w-2xs flex-col justify-between gap-10 bg-white p-7">
+          <aside className="flex w-[13vw] flex-col justify-between gap-10 bg-white p-7">
             <div className="flex flex-col justify-between gap-10">
               <h1 className="mb-2 text-[1rem] font-semibold capitalize">
                 Si Kalirejo
