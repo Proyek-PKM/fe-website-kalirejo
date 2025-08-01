@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DashboardLayout from "./components/DashboardLayout";
-import Dashboard from "../pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 // import Laporan from "../pages/Laporan";
 // import InformasiDesa from "../pages/InformasiDesa";
 // import RiwayatPesan from "../pages/RiwayatPesan";
