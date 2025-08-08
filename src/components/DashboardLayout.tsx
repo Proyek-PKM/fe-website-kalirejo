@@ -1,15 +1,22 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function DashboardLayout() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/logout");
+  };
+
   return (
     <>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
       />
-      <div className="h-screen w-screen bg-[#b8bec6] p-5">
-        <section className="flex h-full w-full cursor-default overflow-hidden rounded-2xl">
-          <aside className="flex w-[13vw] flex-col justify-between gap-10 bg-white p-7">
+      <div className="min-h-screen w-screen bg-[#b8bec6] p-5">
+        <section className="flex h-[calc(100vh-40px)] w-full cursor-default rounded-2xl overflow-hidden">
+          {/* Sidebar */}
+          <aside className="flex w-[13vw] flex-col justify-between gap-10 bg-white p-7 overflow-y-auto">
             <div className="flex flex-col justify-between gap-10">
               <h1 className="mb-2 text-[1rem] font-semibold capitalize">
                 Si Karjo
@@ -93,7 +100,7 @@ function DashboardLayout() {
                       <span className="material-symbols-rounded">person</span>
                     </div>
                     <div className="flex flex-col">
-                      Mas andi
+                      Mas Andi
                       <span className="text-[10px] text-[#b6b6b6]">
                         moderator
                       </span>
@@ -111,14 +118,19 @@ function DashboardLayout() {
                   <span className="material-symbols-rounded">settings</span>
                   settings
                 </div>
-                <div className="flex items-center gap-3 font-bold text-red-600 cursor-pointer">
+                <div
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 font-bold text-red-600 cursor-pointer"
+                >
                   <span className="material-symbols-rounded">logout</span>
                   logout
                 </div>
               </div>
             </div>
           </aside>
-          <main className="w-full bg-[#f6f8fc] p-7 overflow-auto">
+
+          {/* Main Content */}
+          <main className="flex-1 bg-[#f6f8fc] p-7 overflow-y-auto h-full">
             <Outlet />
           </main>
         </section>
