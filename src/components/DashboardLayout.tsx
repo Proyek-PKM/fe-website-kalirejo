@@ -109,15 +109,20 @@ function DashboardLayout() {
                 </ul>
               </div>
             </div>
+
+            {/* Bagian Settings & Logout */}
             <div>
               <h1 className="mb-6 text-[1rem] font-medium text-[#8a8a8a] capitalize">
                 settings
               </h1>
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-3 font-bold cursor-pointer">
+                <Link
+                  to="/settings"
+                  className="flex items-center gap-3 font-bold cursor-pointer hover:text-[#6b6b6b]"
+                >
                   <span className="material-symbols-rounded">settings</span>
                   settings
-                </div>
+                </Link>
                 <div
                   onClick={handleLogout}
                   className="flex items-center gap-3 font-bold text-red-600 cursor-pointer"
@@ -129,7 +134,7 @@ function DashboardLayout() {
             </div>
           </aside>
 
-          {/* Main Content */}
+          {/* Konten Utama */}
           <main className="flex-1 bg-[#f6f8fc] p-7 overflow-y-auto h-full">
             <Outlet />
           </main>

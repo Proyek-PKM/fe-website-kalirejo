@@ -1,4 +1,3 @@
-// src/App.tsx
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,31 +13,27 @@ import RiwayatPesan from "./pages/RiwayatPesan";
 import LogRealtime from "./pages/LogRealTime";
 import Login from "./pages/Login";
 import Logout from "./pages/Logout";
+import Settings from "./pages/Settings";
 
 const App = () => {
   const isAuthenticated = !!localStorage.getItem("user");
-  if (isAuthenticated) {
-    console.log("hell");
-  }
+
   return (
     <Router>
       <Routes>
-        {/* Login route */}
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
 
-        {/* Protected routes */}
-        {/* {!isAuthenticated ? ( */}
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="informasi-desa" element={<InformasiDesa />} />
           <Route path="laporan" element={<Laporan />} />
           <Route path="riwayat-pesan" element={<RiwayatPesan />} />
           <Route path="log-realtime" element={<LogRealtime />} />
+          <Route path="settings" element={<Settings />} /> {/* ⬅️ rute baru */}
         </Route>
-        {/* ) : ( */}
+
         <Route path="*" element={<Navigate to="/login" replace />} />
-        {/* )} */}
       </Routes>
     </Router>
   );
