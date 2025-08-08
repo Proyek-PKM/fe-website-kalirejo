@@ -1,3 +1,5 @@
+import Example from "../components/charts/charts";
+
 function Dashboard() {
   return (
     <div className="min-h-screen p-8">
@@ -28,6 +30,7 @@ function Dashboard() {
           <p className="text-3xl font-bold text-red-600">5</p>
         </div>
       </div>
+      <Example />
     </div>
   );
 }

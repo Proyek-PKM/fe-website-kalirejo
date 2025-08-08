@@ -14,7 +14,7 @@ function DashboardLayout() {
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
       />
       <div className="min-h-screen w-screen bg-[#b8bec6] p-5">
-        <section className="flex h-[calc(100vh-40px)] w-full cursor-default rounded-2xl overflow-hidden">
+        <section className="grid grid-cols-[auto_1fr] h-[calc(100vh-40px)] w-full cursor-default rounded-2xl overflow-hidden">
           {/* Sidebar */}
           <aside className="flex w-[13vw] flex-col justify-between gap-10 bg-white p-7 overflow-y-auto">
             <div className="flex flex-col justify-between gap-10">
