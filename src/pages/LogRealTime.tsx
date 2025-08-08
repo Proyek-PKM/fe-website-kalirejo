@@ -25,27 +25,27 @@ const LogRealtime: React.FC = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">Log Realtime</h1>
+    <div className="min-h-screen p-8">
+      {/* <div className="max-w-8xl mx-auto "> */}
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Log Realtime</h1>
 
-        <div className="h-96 overflow-y-auto bg-gray-50 border rounded-md p-4 space-y-3 text-sm font-mono">
-          {logs.map((log, index) => (
-            <div key={index} className={getLogColor(log)}>
-              {log}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6 flex justify-end">
-          <button
-            onClick={addLog}
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-          >
-            Tambah Log
-          </button>
-        </div>
+      <div className="h-96 overflow-y-auto bg-white border rounded-md p-4 space-y-3 text-sm font-mono">
+        {logs.map((log, index) => (
+          <div key={index} className={getLogColor(log)}>
+            {log}
+          </div>
+        ))}
       </div>
+
+      <div className="mt-6 flex justify-end">
+        <button
+          onClick={addLog}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Tambah Log
+        </button>
+      </div>
+      {/* </div> */}
     </div>
   );
 };

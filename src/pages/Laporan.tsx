@@ -26,10 +26,12 @@ const laporanDummy = [
 
 const LaporanPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100 px-6 py-8">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">Daftar Laporan</h1>
-        
+    <div className="min-h-screen p-8">
+      <div className="max-w-8xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          Daftar Laporan
+        </h1>
+
         <div className="bg-white shadow-md rounded-lg overflow-hidden">
           <table className="min-w-full text-left border-collapse">
             <thead>
@@ -47,10 +49,14 @@ const LaporanPage: React.FC = () => {
                   key={laporan.id}
                   className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
                 >
-                  <td className="py-3 px-4 font-medium text-gray-700">{laporan.id}</td>
+                  <td className="py-3 px-4 font-medium text-gray-700">
+                    {laporan.id}
+                  </td>
                   <td className="py-3 px-4 text-gray-600">{laporan.tanggal}</td>
                   <td className="py-3 px-4 text-gray-800">{laporan.judul}</td>
-                  <td className="py-3 px-4 text-gray-600">{laporan.deskripsi}</td>
+                  <td className="py-3 px-4 text-gray-600">
+                    {laporan.deskripsi}
+                  </td>
                   <td className="py-3 px-4">
                     <span
                       className={`px-3 py-1 text-sm font-semibold rounded-full ${
