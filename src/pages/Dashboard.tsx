@@ -1,4 +1,3 @@
-// src/pages/Dashboard.tsx
 function Dashboard() {
   return (
     <div className="min-h-screen p-8">

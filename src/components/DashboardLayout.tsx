@@ -12,7 +12,7 @@ function DashboardLayout() {
           <aside className="flex w-[13vw] flex-col justify-between gap-10 bg-white p-7">
             <div className="flex flex-col justify-between gap-10">
               <h1 className="mb-2 text-[1rem] font-semibold capitalize">
-                Si Kalirejo
+                Si Karjo
               </h1>
               <div>
                 <h1 className="mb-6 text-[1rem] font-medium text-[#8a8a8a] capitalize">
