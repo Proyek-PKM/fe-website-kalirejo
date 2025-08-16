@@ -7,7 +7,7 @@ import {
 
 import DashboardLayout from "./components/DashboardLayout";
 import Dashboard from "./pages/Dashboard";
-import Laporan from "./pages/Laporan";
+import Laporan from "./pages/Laporan/Laporan";
 import InformasiDesa from "./pages/InformasiDesa";
 import RiwayatPesan from "./pages/RiwayatPesan";
 import LogRealtime from "./pages/LogRealTime";
