@@ -5,7 +5,7 @@ import "./Scrollbar/Scrollbar.css";
 import { Link, Outlet } from "react-router-dom";
 
 function DashboardLayout() {
-  function handleLogout(_event: React.MouseEvent<HTMLDivElement>): void {
+  function handleLogout(_event: MouseEvent<HTMLDivElement, MouseEvent>): void {
     throw new Error("Function not implemented.");
   }
 
