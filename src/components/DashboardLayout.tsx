@@ -1,11 +1,13 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+// import { Link, Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar/Sidebar";
+import "./DashboardLayout.css";
+import "./Scrollbar/Scrollbar.css";
+import { Link, Outlet } from "react-router-dom";
 
 function DashboardLayout() {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    navigate("/logout");
-  };
+  function handleLogout(_event: MouseEvent<HTMLDivElement, MouseEvent>): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <>
