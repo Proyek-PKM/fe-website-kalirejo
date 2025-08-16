@@ -1,0 +1,26 @@
+.layout {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.scrollbar {
+  scrollbar-color: rgba(177, 177, 177, 0.2) rgba(255, 255, 255, 0.5);
+  scroll-behavior: smooth;
+  scrollbar-width: 0px;
+  border-radius: 20px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge lama */
+}
+
+.scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge baru */
+}
