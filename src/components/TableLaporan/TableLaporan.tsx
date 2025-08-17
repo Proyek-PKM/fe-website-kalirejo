@@ -160,7 +160,7 @@ export default function TableLaporan() {
       <SearchInTable
         sort={isDescending}
         setSort={setIsDescending}
-        search={search}
+        // search={search}
         setSearch={setSearch}
       />
       <div className="scroller">
@@ -234,12 +234,12 @@ function Table({ data }: { data: DataTable[] }) {
 function SearchInTable({
   sort,
   setSort,
-  search,
+  // search,
   setSearch,
 }: {
   sort: boolean;
   setSort: Dispatch<SetStateAction<boolean>>;
-  search: string;
+  // search: string;
   setSearch: Dispatch<SetStateAction<string>>;
 }) {
   const [word, setWord] = useState<string>("");

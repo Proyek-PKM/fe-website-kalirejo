@@ -1,30 +1,6 @@
 import TableLaporan from "../../components/TableLaporan/TableLaporan";
 import React from "react";
 
-const laporanDummy = [
-  {
-    id: "L001",
-    tanggal: "2025-08-08",
-    judul: "Laporan Penggunaan Sistem",
-    deskripsi: "Penggunaan sistem mengalami peningkatan pada bulan ini.",
-    status: "Selesai",
-  },
-  {
-    id: "L002",
-    tanggal: "2025-08-07",
-    judul: "Laporan Masalah Jaringan",
-    deskripsi: "Terdapat gangguan pada jaringan server utama.",
-    status: "Dalam Proses",
-  },
-  {
-    id: "L003",
-    tanggal: "2025-08-06",
-    judul: "Laporan Kegiatan Harian",
-    deskripsi: "Pengumpulan data dari pengguna berhasil dilakukan.",
-    status: "Selesai",
-  },
-];
-
 const LaporanPage: React.FC = () => {
   return (
     <div className="flex flex-col p-9">
