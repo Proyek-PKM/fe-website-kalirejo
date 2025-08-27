@@ -28,6 +28,11 @@ const LogRealtime: React.FC = () => {
     <div className="min-h-screen p-8">
       {/* <div className="max-w-8xl mx-auto "> */}
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Log Realtime</h1>
+      <p className="text-gray-700 mb-4">
+        Halaman ini digunakan untuk memantau aktivitas sistem secara langsung.
+        Data log ditampilkan secara realtime sehingga memudahkan dalam melakukan
+        monitoring, debugging, maupun analisis kejadian yang sedang berlangsung.
+      </p>
 
       <div className="h-96 overflow-y-auto bg-white border rounded-md p-4 space-y-3 text-sm font-mono">
         {logs.map((log, index) => (

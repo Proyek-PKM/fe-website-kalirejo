@@ -1,70 +1,86 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-type MessageHistory = {
-  id: string;
-  advocateName: string;
-  lastMessage: string;
-  timestamp: string;
-  isOnline: boolean;
-};
+const RiwayatPesan = () => {
+  // Dummy data pesan
+  const [messages, setMessages] = useState([
+    {
+      kodeTiket: "T001",
+      pengirim: "Jasmine",
+      penerima: "Yena",
+      pesan: "Halo, sudah dicek tiketnya?",
+      waktu: "2025-08-26 10:30:00",
+    },
+    {
+      kodeTiket: "T002",
+      pengirim: "Yena",
+      penerima: "Jasmine",
+      pesan: "Sudah, coba cek update terakhir.",
+      waktu: "2025-08-26 11:15:00",
+    },
+    {
+      kodeTiket: "T003",
+      pengirim: "Admin",
+      penerima: "Jasmine",
+      pesan: "Tiket T003 sudah selesai diproses.",
+      waktu: "2025-08-26 12:05:00",
+    },
+  ]);
 
-const mockChatHistory: MessageHistory[] = [
-  {
-    id: "1",
-    advocateName: "Adv. Rendra Prasetyo, S.H.",
-    lastMessage: "Silakan kirim dokumennya hari ini ya.",
-    timestamp: "2025-08-08 14:12",
-    isOnline: true,
-  },
-  {
-    id: "2",
-    advocateName: "Adv. Dwi Maulina, S.H., M.H.",
-    lastMessage: "Baik, saya akan siapkan berkasnya.",
-    timestamp: "2025-08-07 20:45",
-    isOnline: false,
-  },
-  {
-    id: "3",
-    advocateName: "Adv. Dani Daneswara",
-    lastMessage: "Terima kasih atas kepercayaannya 🙏",
-    timestamp: "2025-08-05 09:30",
-    isOnline: false,
-  },
-];
+  // Optional: update realtime waktu
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-const ChatHistory: React.FC = () => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="min-h-screen p-8">
-      <h1 className="text-3xl font-bold mb-6">Riwayat Pesan</h1>
-      <div className="space-y-4">
-        {mockChatHistory.map((chat) => (
-          <div
-            key={chat.id}
-            className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer flex justify-between items-center"
-          >
-            <div className="flex items-start gap-4">
-              <div className="relative w-12 h-12 rounded-full bg-blue-200 flex items-center justify-center font-bold text-white text-lg">
-                {chat.advocateName.split(" ")[1].charAt(0)}
-                {chat.advocateName.split(" ")[2]?.charAt(0)}
-                {chat.isOnline && (
-                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
-                )}
-              </div>
-              <div>
-                <h2 className="font-semibold text-gray-800">
-                  {chat.advocateName}
-                </h2>
-                <p className="text-sm text-gray-600 line-clamp-1">
-                  {chat.lastMessage}
-                </p>
-              </div>
-            </div>
-            <span className="text-sm text-gray-400">{chat.timestamp}</span>
-          </div>
-        ))}
+    <div className="p-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">
+        Riwayat Pesan
+      </h1>
+      <p className="text-base text-gray-700 mb-4">
+        Halaman ini menampilkan riwayat pesan yang masuk maupun keluar. Data
+        disusun dalam bentuk tabel agar mudah dibaca dan dipantau, dilengkapi
+        dengan informasi pengirim, isi pesan, serta status tindak lanjut.
+      </p>
+
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white shadow-md rounded-lg">
+          <thead>
+            <tr className="bg-blue-100 text-left">
+              <th className="py-3 px-4">Kode Tiket</th>
+              <th className="py-3 px-4">Pengirim</th>
+              <th className="py-3 px-4">Penerima</th>
+              <th className="py-3 px-4">Pesan</th>
+              <th className="py-3 px-4">Waktu</th>
+            </tr>
+          </thead>
+          <tbody>
+            {messages.map((msg, index) => (
+              <tr
+                key={index}
+                className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
+              >
+                <td className="py-2 px-4">{msg.kodeTiket}</td>
+                <td className="py-2 px-4">{msg.pengirim}</td>
+                <td className="py-2 px-4">{msg.penerima}</td>
+                <td className="py-2 px-4">{msg.pesan}</td>
+                <td className="py-2 px-4">{msg.waktu}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
+
+      <p className="text-gray-500 mt-4 text-sm">
+        Waktu sekarang: {currentTime.toLocaleString()}
+      </p>
     </div>
   );
 };
 
-export default ChatHistory;
+export default RiwayatPesan;
