@@ -12,15 +12,10 @@ const PengurusanKK = () => {
         Desa Kalirejo.
       </p>
 
-        <div className="flex justify-center">
-        <img
-            src="public/images/addkk.png"
-            alt="KK"
-        />
-        </div>
-
-
       <section className="bg-blue-50 shadow-md rounded-xl p-6 mb-4">
+        <div className="flex justify-center">
+          <img src="public/images/addkk.png" alt="KK" />
+        </div>
         <h2 className="text-xl font-semibold text-blue-600 mb-2">
           Syarat Pengurusan KK
         </h2>
