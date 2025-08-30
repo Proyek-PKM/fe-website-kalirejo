@@ -281,11 +281,6 @@ function SearchInTable({
           <Icon icon={!sort ? "arrow_downward" : "arrow_upward"} />
         </button>
       </div>
-      {/* {btnSort && (
-        <div className="flex justify-end">
-          <div className="bg-white p-4 px-6 rounded-3xl">kontol</div>
-        </div>
-      )} */}
     </>
   );
 }

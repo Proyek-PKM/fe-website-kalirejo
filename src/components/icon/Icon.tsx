@@ -1,6 +1,12 @@
-import type { GoIcon } from "../types/Icon.types";
-import type { ReactNode } from "react";
+import React from "react";
 
-export default function Icon({ icon }: GoIcon): ReactNode {
-  return <span className="material-symbols-rounded">{icon}</span>;
+interface IconProps {
+  icon: string;
+  className?: string;
 }
+
+const Icon: React.FC<IconProps> = ({ icon, className }) => {
+  return <span className={className}>{icon}</span>;
+};
+
+export default Icon;
