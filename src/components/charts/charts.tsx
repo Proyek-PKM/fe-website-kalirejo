@@ -94,7 +94,7 @@
 //           <Bar dataKey="uv" fill="#82ca9d" minPointSize={10} />
 //         </BarChart>
 //       </ResponsiveContainer>
-//     </div>
+//     </div>   
 //   );
 // };
 

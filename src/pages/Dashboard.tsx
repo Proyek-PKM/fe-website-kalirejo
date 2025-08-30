@@ -1,5 +1,5 @@
 function Dashboard() {
-  return <div className=""></div>;
+  return <div className="">peler</div>;
 }
 
 export default Dashboard;

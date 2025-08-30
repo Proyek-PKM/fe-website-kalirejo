@@ -6,7 +6,7 @@ export default function Sidebar() {
   const menu_overview: MenuType[] = [
     {
       judul: "dashboard",
-      route: "/informasi-desa",
+      route: "/dashboard",
       icon: "dashboard",
     },
     {
@@ -16,12 +16,12 @@ export default function Sidebar() {
     },
     {
       judul: "informasi desa",
-      route: "/",
+      route: "/informasi-desa",
       icon: "holiday_village",
     },
     {
       judul: "log aplikasi",
-      route: "/",
+      route: "/log-aplikasi",
       icon: "terminal",
     },
   ];
@@ -29,12 +29,12 @@ export default function Sidebar() {
   const menu_other: MenuType[] = [
     {
       judul: "edit informasi desa",
-      route: "/",
+      route: "/edit-info-desa",
       icon: "edit",
     },
     {
       judul: "changelog",
-      route: "/",
+      route: "/changelog",
       icon: "app_badging",
     },
   ];
@@ -42,7 +42,7 @@ export default function Sidebar() {
   const menu_settings: MenuType[] = [
     {
       judul: "pengaturan",
-      route: "/",
+      route: "/pengaturan",
       icon: "settings",
     },
   ];
@@ -131,6 +131,7 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
                 rounded-lg 
                 transition-all 
                 select-none
+                text-slate-800
                 ${isActive ? "bg-[#d5fff7] font-bold" : ""}
                 hover:bg-[#effffd]
               `}
