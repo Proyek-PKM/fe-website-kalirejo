@@ -12,17 +12,12 @@ export default function Sidebar() {
     {
       judul: "laporan",
       route: "/laporan",
-      icon: "description",
+      icon: "breaking_news",
     },
     {
       judul: "informasi desa",
       route: "/informasi-desa",
       icon: "holiday_village",
-    },
-    {
-      judul: "riwayat pesan",
-      route: "/riwayat-pesan",
-      icon: "history",
     },
     {
       judul: "log aplikasi",
@@ -38,22 +33,17 @@ export default function Sidebar() {
       icon: "edit",
     },
     {
-      judul: "lihat changelog",
+      judul: "changelog",
       route: "/changelog",
-      icon: "history_toggle_off",
+      icon: "app_badging",
     },
   ];
 
   const menu_settings: MenuType[] = [
     {
-      judul: "settings",
-      route: "/settings",
+      judul: "pengaturan",
+      route: "/pengaturan",
       icon: "settings",
-    },
-    {
-      judul: "logout",
-      route: "/logout",
-      icon: "logout",
     },
   ];
   return (
@@ -83,15 +73,20 @@ export default function Sidebar() {
           </div>
           {/* footer content */}
           <footer className="mb-1">
-            <div className="flex items-center gap-3">
-              <img
-                className="h-10 w-10 object-cover rounded-full cursor-pointer"
-                src="https://i.kym-cdn.com/photos/images/original/003/108/992/ba7.jpg"
-                alt="profile"
-              />
-              <div className="select-none">
-                <h3 className="font-semibold text-sm">Si Karjo App</h3>
-                <p className="text-xs">Administrator</p>
+            <div className="flex justify-between items-center gap-2">
+              <div className="flex gap-3">
+                <img
+                  className="h-10 w-10 object-cover rounded-full cursor-pointer"
+                  src="https://i.kym-cdn.com/photos/images/original/003/108/992/ba7.jpg"
+                  alt="saori"
+                />
+                <div className="select-none">
+                  <h3 className="font-semibold text-sm">Saori Araki</h3>
+                  <p className="text-xs">Administrator</p>
+                </div>
+              </div>
+              <div className="text-red-700 font-semibold cursor-pointer text-sm transition-all hover:text-red-900">
+                <Icon icon="logout" />
               </div>
             </div>
           </footer>
