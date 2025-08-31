@@ -82,19 +82,7 @@ export default function Sidebar() {
             </main>
           </div>
           {/* footer content */}
-          <footer className="mb-1">
-            <div className="flex items-center gap-3">
-              <img
-                className="h-10 w-10 object-cover rounded-full cursor-pointer"
-                src="https://i.kym-cdn.com/photos/images/original/003/108/992/ba7.jpg"
-                alt="profile"
-              />
-              <div className="select-none">
-                <h3 className="font-semibold text-sm">Si Karjo App</h3>
-                <p className="text-xs">Administrator</p>
-              </div>
-            </div>
-          </footer>
+          {/* Footer removed as requested */}
         </div>
       </div>
     </>

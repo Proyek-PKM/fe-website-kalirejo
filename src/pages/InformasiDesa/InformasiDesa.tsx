@@ -22,42 +22,42 @@ const InformasiDesa = () => {
         dan pelayanan publik yang lebih baik.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 container mx-auto px-4 max-w-7xl">
         <FeatureCard
           to="/pengurusan-kk"
           icon={KKIcon}
-          title="Pengurusan KK"
+          title="Tata Cara Pengurusan KK"
           description="Panduan syarat dan cara pengurusan Kartu Keluarga."
-        />
-        <FeatureCard
-          to="/surat-domisili"
-          icon={DomisiliIcon}
-          title="Surat Domisili"
-          description="Cara membuat surat keterangan domisili."
         />
         <FeatureCard
           to="/pengurusan-aktakelahiran"
           icon={AktaKelahiranIcon}
-          title="Pengurusan Akta Kelahiran"
+          title="Tata Cara Pembuatan Akta Kelahiran"
           description="Panduan syarat dan cara pengurusan Akta Kelahiran."
         />
         <FeatureCard
-          to="/pengurusan-ktp"
-          icon={KTPIcon}
-          title="Pengurusan KTP"
-          description="Panduan syarat dan cara pengurusan KTP."
-        />
-        <FeatureCard
-          to="/pindah-domisili"
-          icon={PindahDomisiliIcon}
-          title="Pindah Domisili"
-          description="Panduan syarat dan cara pengurusan Pindah Domisili."
+          to="/surat-domisili"
+          icon={DomisiliIcon}
+          title="Tata Cara Pengurusan Surat Domisili"
+          description="Cara membuat surat keterangan domisili."
         />
         <FeatureCard
           to="/informasi-bantuandesa"
           icon={BantuanDesaIcon}
           title="Informasi Bantuan Desa"
-          description="Informasi Bantuan Desa"
+          description="Informasi tentang bantuan dan program desa."
+        />
+        <FeatureCard
+          to="/pengurusan-ktp"
+          icon={KTPIcon}
+          title="Tata Cara Pengurusan KTP"
+          description="Panduan syarat dan cara pengurusan KTP."
+        />
+        <FeatureCard
+          to="/pindah-domisili"
+          icon={PindahDomisiliIcon}
+          title="Tata Cara Pengurusan Pindah Domisili"
+          description="Panduan syarat dan cara pengurusan Pindah Domisili."
         />
       </div>
     </div>
