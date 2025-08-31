@@ -12,11 +12,11 @@ const LogRealtime: React.FC = () => {
   ]);
 
   const getLogColor = (log: string): string => {
-    if (log.includes("✅")) return "text-green-600";
-    if (log.includes("💬 User")) return "text-blue-600";
-    if (log.includes("💬 Advokat")) return "text-purple-600";
-    if (log.includes("⏸️")) return "text-yellow-600";
-    return "text-gray-700";
+    if (log.includes("✅")) return "text-secondary-600";
+    if (log.includes("💬 User")) return "text-primary-600";
+    if (log.includes("💬 Advokat")) return "text-primary-500";
+    if (log.includes("⏸️")) return "text-neutral-600";
+    return "text-neutral-700";
   };
 
   const addLog = () => {
@@ -26,14 +26,14 @@ const LogRealtime: React.FC = () => {
 
   return (
     <div className="flex flex-col p-9">
-      <h1 className="text-3xl text-[#363636] font-semibold mb-4">Log Realtime</h1>
-      <p className="text-[#7E7E7E] mb-4">
+      <h1 className="text-3xl text-neutral-800 font-semibold mb-4">Log Realtime</h1>
+      <p className="text-neutral-600 mb-4">
         Halaman ini digunakan untuk memantau aktivitas sistem secara langsung.
         Data log ditampilkan secara realtime sehingga memudahkan dalam melakukan
         monitoring, debugging, maupun analisis kejadian yang sedang berlangsung.
       </p>
 
-      <div className="h-96 overflow-y-auto bg-white border rounded-md p-4 space-y-3 text-sm font-mono">
+      <div className="h-96 overflow-y-auto bg-white border border-neutral-100 rounded-2xl shadow-sm p-6 space-y-3 text-sm font-mono">
         {logs.map((log, index) => (
           <div key={index} className={getLogColor(log)}>
             {log}

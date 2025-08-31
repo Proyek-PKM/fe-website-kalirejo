@@ -39,41 +39,36 @@ const RiwayatPesan = () => {
 
   return (
     <div className="flex flex-col p-9">
-      <h1 className="text-3xl text-[#363636] font-semibold mb-4">
+      <h1 className="text-3xl text-neutral-800 font-semibold mb-4">
         Riwayat Pesan
       </h1>
-      <p className="text-[#7E7E7E] mb-4">
+      <p className="text-neutral-600 mb-4">
         Halaman ini menampilkan riwayat pesan yang masuk maupun keluar. Data
         disusun dalam bentuk tabel agar mudah dibaca dan dipantau, dilengkapi
         dengan informasi pengirim, isi pesan, serta status tindak lanjut.
       </p>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-md rounded-lg">
-          <thead>
-            <tr className="bg-blue-100 text-left">
-              <th className="py-3 px-4">Kode Tiket</th>
-              <th className="py-3 px-4">Pengirim</th>
-              <th className="py-3 px-4">Penerima</th>
-              <th className="py-3 px-4">Pesan</th>
-              <th className="py-3 px-4">Waktu</th>
-            </tr>
-          </thead>
-          <tbody>
-            {messages.map((msg, index) => (
-              <tr
-                key={index}
-                className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
-              >
-                <td className="py-2 px-4">{msg.kodeTiket}</td>
-                <td className="py-2 px-4">{msg.pengirim}</td>
-                <td className="py-2 px-4">{msg.penerima}</td>
-                <td className="py-2 px-4">{msg.pesan}</td>
-                <td className="py-2 px-4">{msg.waktu}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {/* Message List */}
+      <div className="mt-6 bg-white rounded-2xl shadow-sm border border-neutral-100 overflow-hidden">
+        {messages.map((message, index) => (
+          <div
+            key={index}
+            className={`p-6 flex justify-between items-start border-b border-neutral-100 hover:bg-neutral-50 transition-colors`}
+          >
+            <div className="space-y-1">
+              <div className="flex items-center space-x-2">
+                <h3 className="text-neutral-800 font-semibold">{message.pengirim}</h3>
+                <span className="text-neutral-400">→</span>
+                <h3 className="text-neutral-800">{message.penerima}</h3>
+              </div>
+              <p className="text-neutral-600">{message.pesan}</p>
+              <p className="text-neutral-500 text-sm">{message.waktu}</p>
+            </div>
+            <span className="text-primary-600 text-sm font-medium">
+              {message.kodeTiket}
+            </span>
+          </div>
+        ))}
       </div>
 
       <p className="text-gray-500 mt-4 text-sm">
