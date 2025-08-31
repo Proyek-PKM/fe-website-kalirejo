@@ -8,11 +8,11 @@ import BantuanDesaIcon from '../../assets/bantuandesa.png';
 
 const InformasiDesa = () => {
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">
+    <div className="flex flex-col p-9">
+      <h1 className="text-3xl text-[#363636] font-semibold mb-4">
         Informasi Desa Kalirejo
       </h1>
-      <p className="text-base text-gray-700 mb-4">
+      <p className="text-[#7E7E7E] mb-4">
         Halaman ini digunakan untuk menyajikan berbagai panduan, tata cara, serta
         informasi penting terkait desa. Informasi disusun secara terstruktur agar
         mudah dipahami oleh masyarakat, dilengkapi dengan petunjuk praktis, aturan

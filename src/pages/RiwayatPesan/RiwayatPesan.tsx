@@ -38,11 +38,11 @@ const RiwayatPesan = () => {
   }, []);
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">
+    <div className="flex flex-col p-9">
+      <h1 className="text-3xl text-[#363636] font-semibold mb-4">
         Riwayat Pesan
       </h1>
-      <p className="text-base text-gray-700 mb-4">
+      <p className="text-[#7E7E7E] mb-4">
         Halaman ini menampilkan riwayat pesan yang masuk maupun keluar. Data
         disusun dalam bentuk tabel agar mudah dibaca dan dipantau, dilengkapi
         dengan informasi pengirim, isi pesan, serta status tindak lanjut.

@@ -3,9 +3,9 @@ import ProgressChart from '../../components/charts/ProgressChart';
 
 function Dashboard() {
   return (
-    <div className="min-h-screen p-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard Admin</h1>
-      <p className="text-base text-gray-700 mb-8">
+    <div className="flex flex-col p-9">
+      <h1 className="text-3xl text-[#363636] font-semibold mb-4">Dashboard Admin</h1>
+      <p className="text-[#7E7E7E] mb-8">
         Sistem ini digunakan untuk memantau dan mengelola laporan dengan tampilan yang rapi, interaktif, dan ramah
         pengguna. Data disajikan secara terstruktur sehingga mudah dibaca, dilengkapi fitur pencarian, filter, dan
         ringkasan untuk pengambilan keputusan yang tepat.

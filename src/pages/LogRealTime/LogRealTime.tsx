@@ -25,10 +25,9 @@ const LogRealtime: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen p-8">
-      {/* <div className="max-w-8xl mx-auto "> */}
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Log Realtime</h1>
-      <p className="text-gray-700 mb-4">
+    <div className="flex flex-col p-9">
+      <h1 className="text-3xl text-[#363636] font-semibold mb-4">Log Realtime</h1>
+      <p className="text-[#7E7E7E] mb-4">
         Halaman ini digunakan untuk memantau aktivitas sistem secara langsung.
         Data log ditampilkan secara realtime sehingga memudahkan dalam melakukan
         monitoring, debugging, maupun analisis kejadian yang sedang berlangsung.
