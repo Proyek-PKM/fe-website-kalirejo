@@ -125,8 +125,8 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
                 transition-all 
                 select-none
                 text-slate-800
-                ${isActive ? "bg-[#d5fff7] font-bold" : ""}
-                hover:bg-[#effffd]
+                ${isActive ? "bg-[#e0edf8] font-bold" : ""}
+                hover:bg-[#e0edf8]
               `}
               key={index}
               onClick={() => navigate(item.route)}

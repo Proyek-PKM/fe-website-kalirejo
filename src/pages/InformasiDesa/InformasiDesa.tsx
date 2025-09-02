@@ -13,16 +13,16 @@ const InformasiDesa = () => {
         Informasi Desa Kalirejo
       </h1>
       <p className="text-neutral-600 mb-4">
-        Halaman ini digunakan untuk menyajikan berbagai panduan, tata cara, serta
-        informasi penting terkait desa. Informasi disusun secara terstruktur agar
-        mudah dipahami oleh masyarakat, dilengkapi dengan petunjuk praktis, aturan
-        layanan, serta berita terbaru mengenai kegiatan dan perkembangan desa.
-        Dengan tampilan yang sederhana namun interaktif, halaman ini diharapkan
-        memudahkan warga dalam memperoleh informasi serta mendukung transparansi
-        dan pelayanan publik yang lebih baik.
+        Halaman ini digunakan untuk menyajikan berbagai panduan, tata cara,
+        serta informasi penting terkait desa. Informasi disusun secara
+        terstruktur agar mudah dipahami oleh masyarakat, dilengkapi dengan
+        petunjuk praktis, aturan layanan, serta berita terbaru mengenai kegiatan
+        dan perkembangan desa. Dengan tampilan yang sederhana namun interaktif,
+        halaman ini diharapkan memudahkan warga dalam memperoleh informasi serta
+        mendukung transparansi dan pelayanan publik yang lebih baik.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 container mx-auto px-4 max-w-7xl bg-neutral-50">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 container mx-auto px-4 max-w-7xl bg-ddecfa">
         <FeatureCard
           to="/pengurusan-kk"
           icon={KKIcon}
