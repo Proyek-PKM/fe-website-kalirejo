@@ -42,7 +42,7 @@ const App = () => {
           <Route path="informasi-bantuandesa" element={<InformasiBantuanDesa />} />
           <Route path="edit-info-desa" element={<EditInformasiDesa />} />
           <Route path="changelog" element={<Changelog />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="settings/*" element={<Settings />} />
           <Route path="logout" element={<Logout />} />
         </Route>
         <Route path="/login" element={<Login />} />
