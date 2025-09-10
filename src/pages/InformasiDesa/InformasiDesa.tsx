@@ -8,11 +8,11 @@ import BantuanDesaIcon from '../../assets/bantuandesa.png';
 
 const InformasiDesa = () => {
   return (
-    <div className="flex flex-col p-9">
-      <h1 className="text-3xl text-neutral-800 font-semibold mb-4">
+    <div className="flex flex-col section-space-y">
+      <h1 className="text-3xl text-neutral-800 font-semibold">
         Informasi Desa Kalirejo
       </h1>
-      <p className="text-neutral-600 mb-4">
+      <p className="text-neutral-600">
         Halaman ini digunakan untuk menyajikan berbagai panduan, tata cara,
         serta informasi penting terkait desa. Informasi disusun secara
         terstruktur agar mudah dipahami oleh masyarakat, dilengkapi dengan
@@ -22,7 +22,7 @@ const InformasiDesa = () => {
         mendukung transparansi dan pelayanan publik yang lebih baik.
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 container mx-auto px-4 max-w-7xl bg-ddecfa">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-ddecfa">
         <FeatureCard
           to="/pengurusan-kk"
           icon={KKIcon}

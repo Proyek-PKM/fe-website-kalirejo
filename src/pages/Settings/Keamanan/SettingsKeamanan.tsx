@@ -35,9 +35,9 @@ const SettingsKeamanan = () => {
           <Link to="/settings/akun" className="px-6 py-2 text-neutral-600 hover:text-neutral-800">
             Akun
           </Link>
-          <button className="px-6 py-2 text-neutral-600 hover:text-neutral-800">
+          <Link to="/settings/notifikasi" className="px-6 py-2 text-neutral-600 hover:text-neutral-800">
             Notifikasi
-          </button>
+          </Link>
         </div>
       </div>
 

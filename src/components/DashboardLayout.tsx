@@ -14,11 +14,13 @@ function DashboardLayout() {
       />
       <div className="h-[100vh] bg-[#b8bec6] p-5">
         <section className="layout">
-          <aside className="scrollside overflow-y-auto">
+          <aside className="sidebar-container overflow-y-auto scrollbar">
             <Sidebar />
           </aside>
           <main className="bg-[#e0edf8] overflow-y-auto scrollbar">
-            <Outlet />
+            <div className="page-container">
+              <Outlet />
+            </div>
           </main>
         </section>
       </div>

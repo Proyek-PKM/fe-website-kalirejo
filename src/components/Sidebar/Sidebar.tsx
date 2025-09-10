@@ -132,7 +132,7 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
               onClick={() => navigate(item.route)}
             >
               <Icon icon={item.icon} />
-              <p className="font-semibold capitalize">{item.judul}</p>
+              <p className="font-semibold capitalize m-0">{item.judul}</p>
             </li>
           );
         })}
