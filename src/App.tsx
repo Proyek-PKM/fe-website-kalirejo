@@ -22,6 +22,10 @@ import RiwayatPesan from "./pages/RiwayatPesan/RiwayatPesan";
 import EditInformasiDesa from "./pages/EditInformasiDesa/EditInformasiDesa";
 import Changelog from "./pages/Changelog/Changelog";
 import Settings from "./pages/Settings/Settings";
+import InfoDesTP from "./pages/InfoDesTP/InfoDesTP";
+import InfoDesBT from "./pages/InfoDesBT/InfoDesBT";
+import InfoDesAM from "./pages/InfoDesAM/InfoDesAM";
+import InfoDesJK from "./pages/InfoDesJK/InfoDesJK";
 
 import "./App.css";
 
@@ -59,6 +63,10 @@ const App = () => {
           <Route path="changelog" element={<Changelog />} />
           <Route path="settings/*" element={<Settings />} />
           <Route path="logout" element={<Logout />} />
+          <Route path="informasi-desa/total-penduduk" element={<InfoDesTP />} />
+          <Route path="informasi-desa/berita-terbaru" element={<InfoDesBT />} />
+          <Route path="informasi-desa/agenda-mendatang" element={<InfoDesAM />} />
+          <Route path="informasi-desa/jumlah-kk" element={<InfoDesJK />} />
         </Route>
 
         {/* Fallback route if no other route matches */}
