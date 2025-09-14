@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         primary: {
           50: '#f0f9ff',
-          100: '#e0f2fe',
+          100: '#EEFFFB',
           200: '#bae6fd',
           300: '#7dd3fc',
           400: '#38bdf8',
@@ -38,6 +38,8 @@ module.exports = {
           800: '#1e293b',
           900: '#0f172a',
         },
+        'menu-active-bg': '#CCFFF6',
+        'logout-text': '#FF0004',
       },
     },
   },

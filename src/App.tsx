@@ -1,10 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import useAuthStore from "./store/authstore";
 
+// Layouts
 import DashboardLayout from "./components/DashboardLayout";
+
+// Pages
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Laporan from "./pages/Laporan/Laporan";
 import InformasiDesa from "./pages/InformasiDesa/InformasiDesa";
-import "./App.css";
 import LaporanDetail from "./pages/LaporanDetail/LaporanDetail";
 import PengurusanKK from "./pages/PengurusanKK/PengurusanKK";
 import SuratDomisili from "./pages/SuratDomisili/SuratDomisili";
@@ -13,22 +16,34 @@ import PengurusanKTP from "./pages/PengurusanKTP/PengurusanKTP";
 import PindahDomisili from "./pages/PindahDomisili/PindahDomisili";
 import InformasiBantuanDesa from "./pages/InformasiBantuanDesa/InformasiBantuanDesa";
 import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register"; // Import Register page
 import Logout from "./pages/Logout/Logout";
-import LogRealTime from "./pages/LogRealTime/LogRealTime";
 import RiwayatPesan from "./pages/RiwayatPesan/RiwayatPesan";
 import EditInformasiDesa from "./pages/EditInformasiDesa/EditInformasiDesa";
 import Changelog from "./pages/Changelog/Changelog";
 import Settings from "./pages/Settings/Settings";
 
+import "./App.css";
+
+// component to protect routes
+const ProtectedRoute = () => {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  return isAuthenticated ? <DashboardLayout /> : <Navigate to="/login" replace />;
+};
+
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<DashboardLayout />}>
+        {/* Public routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Protected routes */}
+        <Route path="/" element={<ProtectedRoute />}>
           <Route index element={<Dashboard />} />
           <Route path="informasi-desa" element={<InformasiDesa />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="log-aplikasi" element={<LogRealTime />} />
           <Route path="riwayat-pesan" element={<RiwayatPesan />} />
           <Route path="laporan">
             <Route index element={<Laporan />} />
@@ -45,7 +60,9 @@ const App = () => {
           <Route path="settings/*" element={<Settings />} />
           <Route path="logout" element={<Logout />} />
         </Route>
-        <Route path="/login" element={<Login />} />
+
+        {/* Fallback route if no other route matches */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );

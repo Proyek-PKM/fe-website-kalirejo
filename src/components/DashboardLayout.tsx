@@ -17,7 +17,7 @@ function DashboardLayout() {
           <aside className="sidebar-container overflow-y-auto scrollbar">
             <Sidebar />
           </aside>
-          <main className="bg-[#e0edf8] overflow-y-auto scrollbar">
+          <main className="bg-primary-100 overflow-y-auto scrollbar">
             <div className="page-container">
               <Outlet />
             </div>

@@ -24,11 +24,7 @@ export default function Sidebar() {
       route: "/riwayat-pesan",
       icon: "history",
     },
-    {
-      judul: "log aplikasi",
-      route: "/log-aplikasi",
-      icon: "terminal",
-    },
+    
   ];
 
   const menu_other: MenuType[] = [
@@ -124,15 +120,15 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
                 rounded-lg 
                 transition-all 
                 select-none
-                text-slate-800
-                ${isActive ? "bg-[#e0edf8] font-bold" : ""}
-                hover:bg-[#e0edf8]
+                ${isActive ? "bg-menu-active-bg font-bold" : ""}
+                ${item.judul === 'logout' ? 'text-logout-text' : 'text-slate-800'}
+                hover:bg-menu-active-bg
               `}
               key={index}
               onClick={() => navigate(item.route)}
             >
               <Icon icon={item.icon} />
-              <p className="font-semibold capitalize m-0">{item.judul}</p>
+              <p className={`font-semibold capitalize m-0 ${item.judul === 'logout' ? 'text-logout-text' : ''}`}>{item.judul}</p>
             </li>
           );
         })}
