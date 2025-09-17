@@ -1,5 +1,6 @@
 import React from 'react';
 import { demographicData, demographicPercentages } from '../../data/demographicData';
+import { useNavigate } from 'react-router-dom';
 
 // Simple inline icons matching the style used elsewhere
 const MaleIcon = () => (
@@ -126,11 +127,25 @@ const InfoDesTP: React.FC = () => {
     { title: 'Kepadatan/km2', value: demographicData.householdData.densityPerKm2.toLocaleString('id-ID'), icon: <StatIconDensity /> },
   ];
 
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate('/informasi-desa');
+  };
+
+
   return (
     <div className="flex flex-col p-4 md:p-6 space-y-6 min-h-screen">
-      {/* Breadcrumb / Title */}
-      <div className="flex items-center justify-between">
-        <h1 className="text-xl md:text-2xl font-bold text-neutral-800">Informasi Desa &gt; Total Penduduk</h1>
+      {/* Breadcrumb */}
+      <div className="flex items-center text-sm text-gray-600 mb-4">
+        <button 
+          onClick={handleBack}
+          className="hover:text-blue-600 transition-colors"
+        >
+          Informasi desa
+        </button>
+        <span className="mx-2">{'>'}</span>
+        <span className="text-gray-800 font-medium">Berita Baru</span>
       </div>
 
       {/* Section Header */}

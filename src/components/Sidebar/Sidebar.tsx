@@ -127,8 +127,33 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
               key={index}
               onClick={() => navigate(item.route)}
             >
-              <Icon icon={item.icon} />
-              <p className={`font-semibold capitalize m-0 ${item.judul === 'logout' ? 'text-logout-text' : ''}`}>{item.judul}</p>
+              {item.judul === "laporan" ? (
+                <span className="inline-flex items-center justify-center">
+                  {/* Using currentColor so the icon follows text color and hover states */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    aria-label="laporan icon"
+                    role="img"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M6 17h5v-2H6v2Zm10 0h2v-2h-2v2ZM6 13h5v-2H6v2Zm10 0h2V7h-2v6ZM6 9h5V7H6v2ZM4 21q-.825 0-1.413-.588T2 19V5q0-.825.588-1.413T4 3h16q.825 0 1.413.588T22 5v14q0 .825-.588 1.413T20 21H4Zm0-2h16V5H4v14Zm0 0V5v14Z"
+                    />
+                  </svg>
+                </span>
+              ) : (
+                <Icon icon={item.icon} />
+              )}
+              <p
+                className={`font-semibold capitalize m-0 ${
+                  item.judul === "logout" ? "text-logout-text" : ""
+                }`}
+              >
+                {item.judul}
+              </p>
             </li>
           );
         })}
