@@ -29,8 +29,6 @@ export interface DemographicData {
     };
     averageMembersPerHousehold: number;
   };
-  newsCount: number;
-  upcomingEvents: number;
 }
 
 export const demographicData: DemographicData = {
@@ -63,8 +61,6 @@ export const demographicData: DemographicData = {
     },
     averageMembersPerHousehold: 3.9
   },
-  newsCount: 12,
-  upcomingEvents: 4
 };
 
 // Calculate percentages for display

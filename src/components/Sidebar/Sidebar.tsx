@@ -29,11 +29,6 @@ export default function Sidebar() {
 
   const menu_other: MenuType[] = [
     {
-      judul: "edit informasi desa",
-      route: "/edit-info-desa",
-      icon: "edit",
-    },
-    {
       judul: "lihat changelog",
       route: "/changelog",
       icon: "history_toggle_off",

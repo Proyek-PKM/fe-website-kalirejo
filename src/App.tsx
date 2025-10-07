@@ -26,6 +26,8 @@ import InfoDesTP from "./pages/InfoDesTP/InfoDesTP";
 import InfoDesBT from "./pages/InfoDesBT/InfoDesBT";
 import InfoDesAM from "./pages/InfoDesAM/InfoDesAM";
 import InfoDesJK from "./pages/InfoDesJK/InfoDesJK";
+import AddDocument from "./pages/AddDocument/AddDocument";
+import EditDocument from "./pages/EditDocument/EditDocument";
 
 import "./App.css";
 
@@ -59,7 +61,6 @@ const App = () => {
           <Route path="pengurusan-ktp" element={<PengurusanKTP />} />
           <Route path="pindah-domisili" element={<PindahDomisili />} />
           <Route path="informasi-bantuandesa" element={<InformasiBantuanDesa />} />
-          <Route path="edit-info-desa" element={<EditInformasiDesa />} />
           <Route path="changelog" element={<Changelog />} />
           <Route path="settings/*" element={<Settings />} />
           <Route path="logout" element={<Logout />} />
@@ -67,6 +68,8 @@ const App = () => {
           <Route path="informasi-desa/berita-terbaru" element={<InfoDesBT />} />
           <Route path="informasi-desa/agenda-mendatang" element={<InfoDesAM />} />
           <Route path="informasi-desa/jumlah-kk" element={<InfoDesJK />} />
+          <Route path="informasi-desa/tambah" element={<AddDocument />} />
+          <Route path="informasi-desa/edit/:id" element={<EditDocument />} />
         </Route>
 
         {/* Fallback route if no other route matches */}
