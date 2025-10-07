@@ -20,7 +20,7 @@
 @layer components {
   /* Standardized page padding wrapper for all main contents */
   .page-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8;
+    @apply max-w-7xl min-w-[600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8;
   }
   /* Vertical spacing helper for stacked sections */
   .section-space-y {

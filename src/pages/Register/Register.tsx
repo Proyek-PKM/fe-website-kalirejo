@@ -22,7 +22,7 @@ const Register = () => {
 
   const validatePassword = (password: string) => {
     const minLength = password.length >= 8;
-    const hasNumber = /\d/.test(password);
+    const hasNumber = /\\d/.test(password);
     const hasUpperCase = /[A-Z]/.test(password);
     
     return {
@@ -50,7 +50,7 @@ const Register = () => {
     }
     
     // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
     if (!email.trim()) {
       errors.push('Email is required');
     } else if (!emailRegex.test(email)) {
