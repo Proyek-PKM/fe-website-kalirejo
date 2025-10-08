@@ -24,7 +24,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    
+    /* Skip library checks for node_modules */
+    "skipLibCheck": true
   },
   "include": ["src"]
 }

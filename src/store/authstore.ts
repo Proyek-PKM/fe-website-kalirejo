@@ -17,7 +17,7 @@ let temporaryUsers: UserData[] = [];
 
 const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       isAuthenticated: false,
       user: null,
 

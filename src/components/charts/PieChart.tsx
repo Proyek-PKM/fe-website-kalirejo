@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -8,6 +7,8 @@ import {
 } from 'chart.js';
 import type { ChartData, ChartOptions } from 'chart.js';
 import { reportStatusLabels, reportStatusColors } from '../../data/chartData';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface ReportData {
   sudahDitangani: number;

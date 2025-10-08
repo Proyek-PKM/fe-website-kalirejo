@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { documentData } from '../../data/documentData';
 import type { DocumentInfo } from '../../data/documentData';

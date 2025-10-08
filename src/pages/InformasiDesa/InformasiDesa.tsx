@@ -1,26 +1,11 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import DocumentTable from './DocumentTable';
-import type { DocumentInfo } from '../../data/documentData';
 
 const InformasiDesa = () => {
   const navigate = useNavigate();
 
   const handleAddClick = () => {
     navigate('/informasi-desa/tambah');
-  };
-
-  // Functions to handle document operations
-  const handleAddDocument = (document: DocumentInfo) => {
-    console.log('Adding document:', document);
-    // Here you would typically send the data to an API or update your store
-    // For now, just log it
-  };
-
-  const handleEditDocument = (document: DocumentInfo) => {
-    console.log('Editing document:', document);
-    // Here you would typically send the data to an API or update your store
-    // For now, just log it
   };
 
   const handleDeleteDocument = (id: number) => {
@@ -69,9 +54,6 @@ const InformasiDesa = () => {
       </div>
 
       <DocumentTable 
-        onAddClick={handleAddClick}
-        onAddDocument={handleAddDocument}
-        onEditDocument={handleEditDocument}
         onDeleteDocument={handleDeleteDocument}
       />
 

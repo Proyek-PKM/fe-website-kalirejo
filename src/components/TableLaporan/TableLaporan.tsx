@@ -189,7 +189,6 @@ function Table({
   setSelectedReport: Dispatch<SetStateAction<DataTable | null>>;
 }) {
   const emptyRows = rowsPerPage - dummyData.length;
-  const navigate = useNavigate();
 
   return (
     <div className="lamo  bg-white">

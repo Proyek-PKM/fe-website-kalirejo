@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { DocumentInfo } from '../../data/documentData';
+import { convertDocumentInfoToForm, convertFormToDocumentInfo, type DocumentFormInfo } from '../../types/documentTypes';
 
 interface DocumentFormProps {
   document: DocumentInfo | null;
@@ -8,29 +9,13 @@ interface DocumentFormProps {
 }
 
 const DocumentForm: React.FC<DocumentFormProps> = ({ document, onSave, onCancel }) => {
-  const [formData, setFormData] = useState<DocumentInfo>({
-    id: 0,
-    name: '',
-    description: '',
-    requirements: [],
-    processSteps: [],
-    processingTime: '',
-    fee: '',
-  });
+  const [formData, setFormData] = useState<DocumentFormInfo>(convertDocumentInfoToForm(null));
 
   useEffect(() => {
     if (document) {
-      setFormData(document);
+      setFormData(convertDocumentInfoToForm(document));
     } else {
-      setFormData({
-        id: 0,
-        name: '',
-        description: '',
-        requirements: [],
-        processSteps: [],
-        processingTime: '',
-        fee: '',
-      });
+      setFormData(convertDocumentInfoToForm(null));
     }
   }, [document]);
 
@@ -56,7 +41,7 @@ const DocumentForm: React.FC<DocumentFormProps> = ({ document, onSave, onCancel 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSave(formData);
+    onSave(convertFormToDocumentInfo(formData));
   };
 
   return (

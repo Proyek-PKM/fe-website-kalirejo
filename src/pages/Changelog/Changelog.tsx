@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Changelog() {
   return (
     <div className="flex flex-col gap-6 p-8">

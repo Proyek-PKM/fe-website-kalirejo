@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import useAuthStore from "./store/authstore";
 
 // Layouts
@@ -19,7 +19,6 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register"; // Import Register page
 import Logout from "./pages/Logout/Logout";
 import RiwayatPesan from "./pages/RiwayatPesan/RiwayatPesan";
-import EditInformasiDesa from "./pages/EditInformasiDesa/EditInformasiDesa";
 import Changelog from "./pages/Changelog/Changelog";
 import Settings from "./pages/Settings/Settings";
 import InfoDesTP from "./pages/InfoDesTP/InfoDesTP";
@@ -68,7 +67,7 @@ const App = () => {
           <Route path="informasi-desa/berita-terbaru" element={<InfoDesBT />} />
           <Route path="informasi-desa/agenda-mendatang" element={<InfoDesAM />} />
           <Route path="informasi-desa/jumlah-kk" element={<InfoDesJK />} />
-          <Route path="informasi-desa/tambah" element={<AddDocument />} />
+          <Route path="informasi-desa/tambah" element={<AddDocument onAddDocument={() => {}} />} />
           <Route path="informasi-desa/edit/:id" element={<EditDocument />} />
         </Route>
 

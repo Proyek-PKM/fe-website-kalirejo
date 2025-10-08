@@ -1,9 +1,7 @@
-// import { Link, Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar/Sidebar";
 import "./DashboardLayout.css";
 import "./Scrollbar/Scrollbar.css";
-import { Navigate, Outlet } from "react-router-dom";
-// import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 
 function DashboardLayout() {
   return (

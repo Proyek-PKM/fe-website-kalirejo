@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { documentData } from '../../data/documentData';
 import type { DocumentInfo } from '../../data/documentData';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 
 interface DocumentTableProps {
-  onAddClick?: () => void;
-  onAddDocument: (document: DocumentInfo) => void;
-  onEditDocument: (document: DocumentInfo) => void;
   onDeleteDocument: (id: number) => void;
 }
 
 const DocumentTable: React.FC<DocumentTableProps> = ({ 
-  onAddClick, 
-  onAddDocument, 
-  onEditDocument, 
   onDeleteDocument
 }) => {
   const navigate = useNavigate();
@@ -23,13 +17,6 @@ const DocumentTable: React.FC<DocumentTableProps> = ({
   // Handler functions for form visibility and document operations
   const handleEdit = (document: DocumentInfo) => {
     navigate(`/informasi-desa/edit/${document.id}`);
-  };
-
-  const handleAdd = () => {
-    // Call the parent's add handler if provided (which navigates to add page)
-    if (onAddClick) {
-      onAddClick();
-    }
   };
 
   const handleDelete = (id: number) => {
