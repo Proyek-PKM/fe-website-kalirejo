@@ -7,7 +7,6 @@ import type { UserData } from '../data/userData';
 interface AuthState {
   isAuthenticated: boolean;
   user: UserData | null;
-  login: (username: string, password: string) => boolean;
   register: (username: string, password: string) => { success: boolean; message: string };
   logout: () => void;
 }
@@ -18,24 +17,10 @@ let temporaryUsers: UserData[] = [];
 const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
-      isAuthenticated: false,
+      isAuthenticated: true,
       user: null,
 
-      login: (username, password) => {
-        // Check both original userData and temporary users
-        const allUsers = [...userData, ...temporaryUsers];
-        const user = allUsers.find(
-          u => (u.username === username || u.email === username) && 
-               u.password === password && 
-               u.isActive
-        );
-        
-        if (user) {
-          set({ isAuthenticated: true, user });
-          return true;
-        }
-        return false;
-      },
+
 
       register: (username, password) => {
         // Check if user already exists in original userData
@@ -66,10 +51,10 @@ const useAuthStore = create<AuthState>()(
           role: 'user', // Default role for new registrants
           isActive: true,
         };
-        
+
         // Add to temporary users
         temporaryUsers.push(newUser);
-        
+
         return { success: true, message: 'Registration successful! Please log in.' };
       },
 

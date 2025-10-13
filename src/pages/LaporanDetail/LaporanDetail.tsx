@@ -1,6 +1,13 @@
 import type { DataTable } from "@/components/types/Table.types";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+
+interface ReportImage {
+  image_id: number;
+  report_id: number;
+  image_url: string;
+  created_at: string; // ISO date format dari backend
+}
 
 export default function LaporanDetail() {
   const { ticket } = useParams();
@@ -40,6 +47,28 @@ export default function LaporanDetail() {
 }
 
 function LaporanDetailItem({ dataFrag }: { dataFrag: DataTable }) {
+  const [imagesReported, setImagesReported] = useState<string[]>([]);
+  useEffect(() => {
+    if (!dataFrag) return;
+
+    const reportImages = async () => {
+      try {
+        const res = await fetch(
+          `https://ephemeral.desakalirejo.id/report/all-images/${dataFrag?.no}`,
+          {
+            method: "GET",
+          }
+        );
+        const result = await res.json();
+        console.log(result);
+        setImagesReported(result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    reportImages();
+  }, [dataFrag]);
   const items = [
     { title: "Kode Tiket", value: dataFrag.kodeTiket },
     { title: "Judul", value: dataFrag.judul },
@@ -48,7 +77,7 @@ function LaporanDetailItem({ dataFrag }: { dataFrag: DataTable }) {
     { title: "Deskripsi", value: dataFrag.deskripsi },
     { title: "Status", value: dataFrag.status },
     { title: "", value: "", isContent: false },
-    { title: "Lampiran Foto", value: dataFrag.deskripsi },
+    { title: "Lampiran Foto", value: imagesReported },
     { title: "", value: "", isContent: false },
     { title: "", value: "", isContent: false },
     { title: "Informasi Pelapor", value: dataFrag.deskripsi },
@@ -65,13 +94,59 @@ function LaporanDetailItem({ dataFrag }: { dataFrag: DataTable }) {
               : "bg-white transition-all border border-transparent hover:border-slate-200"
           }`}
         >
-          {item.value && (
+          {item.value && item.title.toLocaleLowerCase() !== "lampiran foto" && (
             <>
               <h1 className="font-bold text-xl text-slate-700">{item.title}</h1>
               <p className="text-slate-600">{item.value}</p>
             </>
           )}
+          {item.title.toLocaleLowerCase() === "lampiran foto" && (
+            <>
+              <h1 className="font-bold text-xl text-slate-700">{item.title}</h1>
+              <ImageList images={item.value as unknown as ReportImage[]} />
+            </>
+          )}
         </div>
+      ))}
+    </div>
+  );
+}
+
+function ImageList({ images }: { images: ReportImage[] }) {
+  const [urls, setUrls] = useState<string[]>([]);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      try {
+        const results = await Promise.all(
+          images.map(async (img) => {
+            const res = await fetch(img.image_url, {
+              headers: {
+                "X-Api-Key": "jabirsibuk",
+              },
+            });
+            const blob = await res.blob();
+            return URL.createObjectURL(blob);
+          })
+        );
+        setUrls(results);
+      } catch (err) {
+        console.error("Gagal ambil gambar:", err);
+      }
+    };
+
+    loadImages();
+  }, [images]);
+
+  return (
+    <div className="flex gap-3 flex-wrap">
+      {urls.map((url, i) => (
+        <img
+          key={i}
+          src={url}
+          alt={`report-image-${i}`}
+          className="w-40 h-40 object-cover rounded-xl border"
+        />
       ))}
     </div>
   );

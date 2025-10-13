@@ -3,9 +3,9 @@ import React from "react";
 
 const LaporanPage: React.FC = () => {
   return (
-    <div className="flex flex-col p-9">
+    <div className="flex flex-col ">
       <header>
-        <h1 className="text-3xl text-[#363636] font-semibold mb-4">Laporan</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Laporan</h1>
         <p className="text-[#7E7E7E] w-[85%]">
           Halaman ini digunakan untuk memantau dan mengelola laporan dengan
           tampilan yang rapi, interaktif, dan ramah pengguna. Data disajikan
