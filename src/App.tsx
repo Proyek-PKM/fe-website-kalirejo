@@ -27,6 +27,7 @@ import InfoDesAM from "./pages/InfoDesAM/InfoDesAM";
 import InfoDesJK from "./pages/InfoDesJK/InfoDesJK";
 import AddDocument from "./pages/AddDocument/AddDocument";
 import EditDocument from "./pages/EditDocument/EditDocument";
+import DataWarga from "./pages/DataWarga/DataWarga";
 
 import "./App.css";
 
@@ -69,6 +70,7 @@ const App = () => {
           <Route path="informasi-desa/jumlah-kk" element={<InfoDesJK />} />
           <Route path="informasi-desa/tambah" element={<AddDocument onAddDocument={() => {}} />} />
           <Route path="informasi-desa/edit/:id" element={<EditDocument />} />
+          <Route path="data-warga" element={<DataWarga />} />
         </Route>
 
         {/* Fallback route if no other route matches */}

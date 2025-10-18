@@ -6,10 +6,6 @@ import { Outlet } from "react-router-dom";
 function DashboardLayout() {
   return (
     <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
-      />
       <div className="h-[100vh] bg-[#b8bec6] p-5">
         <section className="layout">
           <aside className="sidebar-container overflow-y-auto scrollbar">

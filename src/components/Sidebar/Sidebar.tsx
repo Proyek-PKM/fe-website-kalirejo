@@ -24,7 +24,11 @@ export default function Sidebar() {
       route: "/riwayat-pesan",
       icon: "history",
     },
-    
+    {
+      judul: "data warga",
+      route: "/data-warga",
+      icon: "people",
+    },
   ];
 
   const menu_other: MenuType[] = [
