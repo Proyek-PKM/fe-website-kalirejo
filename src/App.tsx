@@ -3,9 +3,11 @@ import useAuthStore from "./store/authstore";
 
 // Layouts
 import DashboardLayout from "./components/DashboardLayout";
+import LandingLayout from "./components/LandingLayout";
 
 // Pages
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Landing from "./pages/Landing/Landing";
 import Laporan from "./pages/Laporan/Laporan";
 import InformasiDesa from "./pages/InformasiDesa/InformasiDesa";
 import LaporanDetail from "./pages/LaporanDetail/LaporanDetail";
@@ -31,10 +33,22 @@ import DataWarga from "./pages/DataWarga/DataWarga";
 
 import "./App.css";
 
-// component to protect routes
+// Component to protect routes
 const ProtectedRoute = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   return isAuthenticated ? <DashboardLayout /> : <Navigate to="/login" replace />;
+};
+
+// Component for public landing page
+const PublicRoute = () => {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <LandingLayout />;
+};
+
+// Component for fallback route
+const FallbackRoute = () => {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/" replace />;
 };
 
 const App = () => {
@@ -45,11 +59,15 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
+        {/* Public landing page */}
+        <Route path="/" element={<PublicRoute />}>
+          <Route index element={<Landing />} />
+        </Route>
+
         {/* Protected routes */}
-        <Route path="/" element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<ProtectedRoute />}>
           <Route index element={<Dashboard />} />
           <Route path="informasi-desa" element={<InformasiDesa />} />
-          <Route path="dashboard" element={<Dashboard />} />
           <Route path="riwayat-pesan" element={<RiwayatPesan />} />
           <Route path="laporan">
             <Route index element={<Laporan />} />
@@ -74,7 +92,7 @@ const App = () => {
         </Route>
 
         {/* Fallback route if no other route matches */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<FallbackRoute />} />
       </Routes>
     </Router>
   );
