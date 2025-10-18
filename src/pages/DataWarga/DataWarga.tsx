@@ -1,16 +1,5 @@
 import { dataWarga } from '../../data/dataWarga';
 
-interface DataWargaType {
-  id: string;
-  nama: string;
-  nik: string;
-  nomor: string;
-  alamat: {
-    dusun: string;
-    rtRw: string;
-  };
-}
-
 export default function DataWarga() {
 
   return (

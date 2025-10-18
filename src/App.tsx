@@ -65,9 +65,11 @@ const App = () => {
         </Route>
 
         {/* Protected routes */}
-        <Route path="/dashboard" element={<ProtectedRoute />}>
+        <Route path="/" element={<ProtectedRoute />}>
           <Route index element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="informasi-desa" element={<InformasiDesa />} />
+          <Route path="data-warga" element={<DataWarga />} />
           <Route path="riwayat-pesan" element={<RiwayatPesan />} />
           <Route path="laporan">
             <Route index element={<Laporan />} />
@@ -88,7 +90,11 @@ const App = () => {
           <Route path="informasi-desa/jumlah-kk" element={<InfoDesJK />} />
           <Route path="informasi-desa/tambah" element={<AddDocument onAddDocument={() => {}} />} />
           <Route path="informasi-desa/edit/:id" element={<EditDocument />} />
-          <Route path="data-warga" element={<DataWarga />} />
+        </Route>
+
+        {/* Dashboard route for direct access */}
+        <Route path="/dashboard" element={<ProtectedRoute />}>
+          <Route index element={<Dashboard />} />
         </Route>
 
         {/* Fallback route if no other route matches */}
