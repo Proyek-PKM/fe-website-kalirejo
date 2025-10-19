@@ -52,11 +52,16 @@ function LaporanDetailItem({ dataFrag }: { dataFrag: DataTable }) {
     if (!dataFrag) return;
 
     const reportImages = async () => {
+      const token = sessionStorage.getItem("sessionToken") || "";
       try {
         const res = await fetch(
           `https://ephemeral.desakalirejo.id/report/all-images/${dataFrag?.no}`,
           {
             method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "x-session-token": `Bearer ${token}`, // pakai token dari sessionStorage
+            },
           }
         );
         const result = await res.json();

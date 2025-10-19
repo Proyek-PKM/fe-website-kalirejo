@@ -13,8 +13,16 @@ export default function TableLaporan() {
 
   useEffect(() => {
     const getReportData = async () => {
+      const token = sessionStorage.getItem("sessionToken") || "";
+
       try {
-        const res = await fetch("https://ephemeral.desakalirejo.id/report");
+        const res = await fetch("https://ephemeral.desakalirejo.id/report", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "x-session-token": `Bearer ${token}`, // pakai token dari sessionStorage
+          },
+        });
         const data = await res.json();
 
         // map biar formatnya nyocok sama DataTable

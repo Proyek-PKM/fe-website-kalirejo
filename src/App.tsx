@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import useAuthStore from "./store/authstore";
 
 // Layouts
@@ -36,19 +41,21 @@ import "./App.css";
 // Component to protect routes
 const ProtectedRoute = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  return isAuthenticated ? <DashboardLayout /> : <Navigate to="/login" replace />;
-};
-
-// Component for public landing page
-const PublicRoute = () => {
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <LandingLayout />;
+  return isAuthenticated ? (
+    <DashboardLayout />
+  ) : (
+    <Navigate to="/login" replace />
+  );
 };
 
 // Component for fallback route
 const FallbackRoute = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/" replace />;
+  return isAuthenticated ? (
+    <Navigate to="/dashboard" replace />
+  ) : (
+    <Navigate to="/" replace />
+  );
 };
 
 const App = () => {
@@ -58,11 +65,6 @@ const App = () => {
         {/* Public routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
-        {/* Public landing page */}
-        <Route path="/" element={<PublicRoute />}>
-          <Route index element={<Landing />} />
-        </Route>
 
         {/* Protected routes */}
         <Route path="/" element={<ProtectedRoute />}>
@@ -77,18 +79,30 @@ const App = () => {
           </Route>
           <Route path="pengurusan-kk" element={<PengurusanKK />} />
           <Route path="surat-domisili" element={<SuratDomisili />} />
-          <Route path="pengurusan-aktakelahiran" element={<PengurusanAktaKelahiran />} />
+          <Route
+            path="pengurusan-aktakelahiran"
+            element={<PengurusanAktaKelahiran />}
+          />
           <Route path="pengurusan-ktp" element={<PengurusanKTP />} />
           <Route path="pindah-domisili" element={<PindahDomisili />} />
-          <Route path="informasi-bantuandesa" element={<InformasiBantuanDesa />} />
+          <Route
+            path="informasi-bantuandesa"
+            element={<InformasiBantuanDesa />}
+          />
           <Route path="changelog" element={<Changelog />} />
           <Route path="settings/*" element={<Settings />} />
           <Route path="logout" element={<Logout />} />
           <Route path="informasi-desa/total-penduduk" element={<InfoDesTP />} />
           <Route path="informasi-desa/berita-terbaru" element={<InfoDesBT />} />
-          <Route path="informasi-desa/agenda-mendatang" element={<InfoDesAM />} />
+          <Route
+            path="informasi-desa/agenda-mendatang"
+            element={<InfoDesAM />}
+          />
           <Route path="informasi-desa/jumlah-kk" element={<InfoDesJK />} />
-          <Route path="informasi-desa/tambah" element={<AddDocument onAddDocument={() => {}} />} />
+          <Route
+            path="informasi-desa/tambah"
+            element={<AddDocument onAddDocument={() => {}} />}
+          />
           <Route path="informasi-desa/edit/:id" element={<EditDocument />} />
         </Route>
 

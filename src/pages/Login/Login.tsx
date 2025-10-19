@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useAuthStore from '../../store/authstore';
+import useAuthStore from "../../store/authstore";
 
 const Login = () => {
   const [phone, setPhone] = useState("");
@@ -57,16 +57,16 @@ const Login = () => {
       );
       const data = await res.json();
 
+      sessionStorage.setItem("sessionToken", data.token);
       if (data.token) {
         setSessionToken(data.token);
         // Store the token in localStorage/sessionStorage as needed
-        localStorage.setItem("sessionToken", data.token);
-        
+
         // Here you can login to your auth store with the received token
         // For now, we'll use a default user for demo purposes
-        const result = await login('admin', 'admin123'); // Temporary login for demo
+        const result = await login("admin", "admin123"); // Temporary login for demo
         if (result.success) {
-          navigate('/dashboard');
+          navigate("/dashboard");
         } else {
           setErrorMessage(result.message);
         }
@@ -87,12 +87,12 @@ const Login = () => {
       <div className="bg-slate-100 p-5 rounded-xl max-w-2xl w-full mx-auto">
         <div className="flex justify-between items-center mb-4">
           <h1 className="font-bold">Login</h1>
-          <button
+          {/* <button
             onClick={() => navigate('/')}
             className="text-sm bg-gray-200 hover:bg-gray-300 rounded px-3 py-1 font-medium"
           >
             Back to Landing
-          </button>
+          </button> */}
         </div>
 
         {errorMessage && (
