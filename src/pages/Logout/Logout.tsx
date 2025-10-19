@@ -1,14 +1,16 @@
 // src/pages/Logout.tsx
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useAuthStore from "../../store/authstore";
 
 const Logout = () => {
   const navigate = useNavigate();
+  const logout = useAuthStore((state) => state.logout);
 
   useEffect(() => {
-    localStorage.removeItem("user");
-    navigate("/login");
-  }, [navigate]);
+    logout(); // Call the logout function from auth store to properly update state
+    navigate("/"); // Navigate to landing page instead of login
+  }, [navigate, logout]);
 
   return null;
 };

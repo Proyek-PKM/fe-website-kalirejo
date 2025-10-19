@@ -7,6 +7,7 @@ import type { UserData } from '../data/userData';
 interface AuthState {
   isAuthenticated: boolean;
   user: UserData | null;
+  login: (username: string, password: string) => { success: boolean; message: string };
   register: (username: string, password: string) => { success: boolean; message: string };
   logout: () => void;
 }
@@ -21,6 +22,27 @@ const useAuthStore = create<AuthState>()(
       user: null,
 
 
+
+      login: (username, password) => {
+        // First check in original userData
+        let user = userData.find(
+          u => (u.username === username || u.email === username) && u.password === password && u.isActive
+        );
+
+        // If not found in original data, check in temporary users
+        if (!user) {
+          user = temporaryUsers.find(
+            u => (u.username === username || u.email === username) && u.password === password && u.isActive
+          );
+        }
+
+        if (user) {
+          set({ isAuthenticated: true, user });
+          return { success: true, message: 'Login successful!' };
+        } else {
+          return { success: false, message: 'Invalid username or password.' };
+        }
+      },
 
       register: (username, password) => {
         // Check if user already exists in original userData
