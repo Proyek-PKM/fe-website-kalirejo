@@ -44,7 +44,7 @@ const PieChart: React.FC<{ data: ReportData }> = ({ data }) => {
   };
 
   return (
-    <div style={{ height: '300px' }}>
+    <div className="w-full" style={{ height: '200px', minHeight: '150px' }}>
       <Pie data={chartData} options={options} />
     </div>
   );

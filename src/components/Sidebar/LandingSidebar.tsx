@@ -1,8 +1,13 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import type { MenuType } from "../../types/Sidebar.types";
-import Icon from "../../icon/Icon";
+import type { MenuType } from "../types/Sidebar.types";
+import Icon from "../icon/Icon";
 
-export default function LandingSidebar() {
+interface LandingSidebarProps {
+  isSidebarOpen?: boolean;
+  toggleSidebar?: () => void;
+}
+
+export default function LandingSidebar({ isSidebarOpen = true, toggleSidebar }: LandingSidebarProps) {
   const menu_auth: MenuType[] = [
     {
       judul: "login/register",
@@ -13,33 +18,51 @@ export default function LandingSidebar() {
 
   return (
     <>
-      <div className="p-8 px-10 h-full">
-        {/* wrapper */}
-        <div className="flex flex-col gap-10 justify-between h-full ">
-          <div className="mb-20">
+      <div className={`h-full flex flex-col ${isSidebarOpen ? 'w-80' : 'w-20'} transition-all duration-300 bg-primary-100`}>
+        <div className="flex flex-col gap-10 justify-between h-full p-4 md:p-8">
+          <div className={`transition-all duration-300 ${isSidebarOpen ? 'opacity-100' : 'opacity-0 absolute md:opacity-0 md:relative'} mb-20`}>
             {/* header */}
-            <header className="flex items-center gap-2 mb-16 mr-16">
+            <header className="flex items-center gap-2 mb-16">
               <img
-                className="ml-[-15px] w-[3rem]"
+                className={`${isSidebarOpen ? 'w-[3rem]' : 'w-[2rem]'} transition-all duration-300`}
                 src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.kibrispdr.org%2Fdata%2F753%2Flogo-kabupaten-banyuwangi-png-3.png&f=1&nofb=1&ipt=be43c0b886e2cd492eb138db6d24aa8bc9c740f8b7bbb6e25a8772e331de191d"
                 alt="oke"
               />
-              <h1 className="text-2xl font-bold">Si Karjo App</h1>
+              <h1 className={`text-xl md:text-2xl font-bold transition-all duration-300 ${isSidebarOpen ? 'opacity-100' : 'opacity-0 md:opacity-0 absolute md:relative md:opacity-100'}`}>
+                {isSidebarOpen ? 'Si Karjo App' : 'SK'}
+              </h1>
             </header>
             {/* menu */}
             <main className="flex flex-col gap-5">
-              <Menu title="" dataMenu={menu_auth} />
+              <Menu title="" dataMenu={menu_auth} isSidebarOpen={isSidebarOpen} />
             </main>
           </div>
-          {/* footer content */}
-          {/* Footer removed as requested */}
+          
+          {/* Mobile close button - only visible on mobile when sidebar is open */}
+          <div className="md:hidden">
+            {isSidebarOpen && toggleSidebar && (
+              <button 
+                onClick={toggleSidebar}
+                className="p-2 rounded-lg bg-gray-200 text-gray-800 w-full"
+              >
+                <svg 
+                  className="w-6 h-6 mx-auto" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </>
   );
 }
 
-function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
+function Menu({ title, dataMenu, isSidebarOpen }: { title: string; dataMenu: MenuType[]; isSidebarOpen: boolean }) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -50,7 +73,7 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
 
   return (
     <div className="select-none">
-      {title && (
+      {title && isSidebarOpen && (
         <h3 className="text-[#7C7C7C] font-semibold text-base capitalize mb-5">
           {title}
         </h3>
@@ -71,7 +94,7 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
                 items-center 
                 text-sm
                 gap-3 
-                py-3 px-7 
+                py-3 px-3 md:px-7 
                 cursor-pointer 
                 rounded-lg 
                 transition-all 
@@ -85,7 +108,7 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
             >
               <Icon icon={item.icon} />
               <p
-                className={`font-semibold capitalize m-0 ${item.judul === "logout" ? "text-logout-text" : ""}`}
+                className={`font-semibold capitalize m-0 transition-all duration-300 ${isSidebarOpen ? 'opacity-100 w-auto' : 'opacity-0 w-0 absolute md:opacity-0 md:relative md:opacity-100 md:w-auto overflow-hidden'} ${item.judul === "logout" ? "text-logout-text" : ""}`}
               >
                 {item.judul}
               </p>
