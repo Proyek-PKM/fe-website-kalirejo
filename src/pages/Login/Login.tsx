@@ -18,12 +18,6 @@ const Login = () => {
     setLoading(true);
     setErrorMessage("");
 
-    // TEMPORARY: Direct navigation to dashboard (security bypass for development)
-    navigate("/dashboard");
-    setLoading(false);
-    
-    /*
-    // ORIGINAL CODE - COMMENTED FOR TEMPORARY ACCESS
     try {
       const res = await fetch(
         "https://ephemeral.desakalirejo.id/auth/request",
@@ -45,7 +39,6 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-    */
   };
 
   const handleOtpSubmit = async (e: React.FormEvent) => {
@@ -53,12 +46,6 @@ const Login = () => {
     setLoading(true);
     setErrorMessage("");
 
-    // TEMPORARY: Direct navigation to dashboard (security bypass for development)
-    navigate("/dashboard");
-    setLoading(false);
-    
-    /*
-    // ORIGINAL CODE - COMMENTED FOR TEMPORARY ACCESS
     try {
       const res = await fetch(
         "https://ephemeral.desakalirejo.id/auth/request/verify",
@@ -93,7 +80,6 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-    */
   };
 
   return (

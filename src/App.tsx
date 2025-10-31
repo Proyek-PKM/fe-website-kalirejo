@@ -3,7 +3,6 @@ import {
   Routes,
   Route,
   Navigate,
-  Outlet,
 } from "react-router-dom";
 import useAuthStore from "./store/authstore";
 
@@ -27,20 +26,14 @@ import Logout from "./pages/Logout/Logout";
 
 import "./App.css";
 
-// Component to protect routes - TEMPORARY: Always allow access for development
+// Component to protect routes
 const ProtectedRoute = () => {
-  // TEMPORARY: Direct access to dashboard layout (security bypass for development)
-  return <DashboardLayout />;
-  
-  /*
-  // ORIGINAL CODE - COMMENTED FOR TEMPORARY ACCESS
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   return isAuthenticated ? (
     <DashboardLayout />
   ) : (
     <Navigate to="/login" replace />
   );
-  */
 };
 
 const App = () => {

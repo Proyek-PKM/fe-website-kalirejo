@@ -41,7 +41,7 @@ const DocumentTable: React.FC<DocumentTableProps> = ({
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {documents.map((document, index) => (
+            {documents.map((document) => (
               <tr key={document.id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{document.no}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{document.judul}</td>

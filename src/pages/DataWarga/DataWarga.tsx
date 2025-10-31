@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { dataWarga } from "../../data/dataWarga";
 
 export default function DataWarga() {
