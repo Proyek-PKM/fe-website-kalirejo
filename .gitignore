@@ -1,1 +1,13 @@
 /node_modules
+/src-copy-backup
+/dist
+/build
+/.env
+/.env.local
+/.env.development
+/.env.production
+/.expo
+/.expo-shared
+/.vscode
+.DS_Store
+npm-debug.log*

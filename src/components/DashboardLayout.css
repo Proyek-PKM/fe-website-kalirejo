@@ -1,8 +1,30 @@
+.layout {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column for mobile */
+  height: calc(100vh - 1rem); /* Full height minus padding */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: auto 1fr; /* Two columns on medium and larger screens */
+  }
+}
+
+.sidebar-container {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #e0e0e0;
+  width: 100%; /* Full width on mobile */
+  height: 100%; /* Full height */
+  overflow-y: auto;
+}
+
 .scrollbar {
   scrollbar-color: rgba(177, 177, 177, 0.2) rgba(255, 255, 255, 0.5);
   scroll-behavior: smooth;
   scrollbar-width: 0px;
-  border-radius: 20px;
 }
 
 .scrollbar {

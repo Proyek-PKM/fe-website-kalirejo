@@ -1,0 +1,56 @@
+.lmao {
+  border-right: 1px solid #e2eafa;
+  border-bottom: 1px solid #e2eafa;
+  /* background-color: yellow; */
+}
+.lmaoz {
+  border-right: 1px solid #e2eafa;
+  /* border-bottom: 1px solid #e2eafa; */
+  /* background-color: yellow; */
+}
+.lmaos {
+  /* border-right: 1px solid #e2eafa; */
+  /* border-bottom: 1px solid #e2eafa; */
+  outline: 1px solid #e2eafa;
+  /* background-color: yellow; */
+}
+.lmaox {
+  border-right: none;
+  border-bottom: 1px solid #e2eafa;
+  /* background-color: yellow; */
+}
+
+.lamo {
+  overflow-y: scroll;
+  height: 69.8vh;
+  scrollbar-color: rgba(124, 124, 124, 0.2) rgba(255, 255, 255, 0.5);
+  scrollbar-width: 10px;
+  border-radius: 20px;
+  scroll-margin: 20px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+.scroller {
+  overflow: hidden;
+  border-radius: 20px;
+}

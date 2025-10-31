@@ -1,7 +1,7 @@
 import PieChart from "../../components/charts/PieChart";
 import { reportStatusData } from "../../data/chartData";
 
-function Landing() {
+function Dashboard() {
   const reportData = reportStatusData;
 
   return (
@@ -104,4 +104,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default Dashboard;

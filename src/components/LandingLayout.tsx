@@ -51,8 +51,26 @@ function LandingLayout() {
         )}
         
         {/* Main content area */}
-        <main className={`bg-primary-100 overflow-y-auto scrollbar rounded-lg h-full flex-1 transition-all duration-300 ${isMobile && isSidebarOpen ? 'opacity-30' : 'opacity-100'}`}>
+        <main className={`bg-primary-100 overflow-y-auto scrollbar rounded-r-lg h-full flex-1 transition-all duration-300 ${isMobile && isSidebarOpen ? 'opacity-30' : 'opacity-100'}`}>
           <div className="page-container p-4 sm:p-6">
+            {/* Mobile menu button for sidebar toggle - shown only on mobile screens */}
+            <div className="md:hidden mb-4 flex justify-start">
+              <button 
+                onClick={toggleSidebar}
+                className="p-2 rounded-lg bg-gray-200 text-gray-800 z-50 relative"
+                aria-label="Toggle menu"
+              >
+                <svg 
+                  className="w-6 h-6" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+            
             <Outlet />
           </div>
         </main>

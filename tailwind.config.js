@@ -38,7 +38,7 @@ module.exports = {
           800: '#1e293b',
           900: '#0f172a',
         },
-        'menu-active-bg': '#EEFFFB',
+        'menu-active-bg': '#CCFFF6',
         'logout-text': '#FF0004',
         'village-bg': '#E8F5E8',
         'stat-navy': '#1A237E',
