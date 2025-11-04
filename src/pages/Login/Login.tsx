@@ -57,13 +57,14 @@ const Login = () => {
       );
       const data = await res.json();
 
-      sessionStorage.setItem("sessionToken", data.token);
       if (data.token) {
+        // Store the token in sessionStorage
+        sessionStorage.setItem("sessionToken", data.token);
         setSessionToken(data.token);
-        // Store the token in localStorage/sessionStorage as needed
-
-        // Here you can login to your auth store with the received token
-        // For now, we'll use a default user for demo purposes
+        
+        // For now, since this is OTP authentication and we don't have user details from the API,
+        // we'll login with a default user (like admin) to set the auth state
+        // In a real app, the API would return user details along with the token
         const result = await login("admin", "admin123"); // Temporary login for demo
         if (result.success) {
           navigate("/dashboard");

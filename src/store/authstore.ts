@@ -82,6 +82,7 @@ const useAuthStore = create<AuthState>()(
 
       logout: () => {
         set({ isAuthenticated: false, user: null });
+        sessionStorage.removeItem("sessionToken")
       },
     }),
     {
