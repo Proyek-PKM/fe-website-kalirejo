@@ -18,24 +18,14 @@ export default function Sidebar() {
       judul: "informasi desa",
       route: "/informasi-desa",
       icon: "holiday_village",
-    },
-    {
-      judul: "log aplikasi",
-      route: "/log-aplikasi",
-      icon: "terminal",
-    },
+    }
   ];
 
   const menu_other: MenuType[] = [
     {
-      judul: "edit informasi desa",
-      route: "/edit-info-desa",
-      icon: "edit",
-    },
-    {
-      judul: "changelog",
-      route: "/changelog",
-      icon: "app_badging",
+      judul: "chat realtime",
+      route: "/chat-realtime",
+      icon: "chat",
     },
   ];
 
@@ -81,7 +71,7 @@ export default function Sidebar() {
                   alt="saori"
                 />
                 <div className="select-none">
-                  <h3 className="font-semibold text-sm">Saori Araki</h3>
+                  <h3 className="font-semibold text-sm">Admin</h3>
                   <p className="text-xs">Administrator</p>
                 </div>
               </div>
@@ -132,7 +122,7 @@ function Menu({ title, dataMenu }: { title: string; dataMenu: MenuType[] }) {
                 transition-all 
                 select-none
                 text-slate-800
-                ${isActive ? "bg-[#d5fff7] font-bold" : ""}
+                ${isActive ? "bg-gray-100 font-bold" : ""}
                 hover:bg-[#effffd]
               `}
               key={index}
