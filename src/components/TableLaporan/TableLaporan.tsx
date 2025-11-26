@@ -12,33 +12,33 @@ const rowsPerPage = 10;
 
 // --- 3. FUNGSI HELPER ---
 
-/**
- * Memproses array Report dari server menjadi array TableData yang siap ditampilkan.
- * Mengurutkan berdasarkan tanggal dibuat (terbaru di atas) dan menambahkan nomor urut.
- */
-const processReportsToTableData = (reports: Report[]): TableData[] => {
-  // Sortir berdasarkan created_at Descending (Terbaru ke Terlama)
-  const sortedReports = reports.sort((a, b) =>
-    new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-  );
+// /**
+//  * Memproses array Report dari server menjadi array TableData yang siap ditampilkan.
+//  * Mengurutkan berdasarkan tanggal dibuat (terbaru di atas) dan menambahkan nomor urut.
+//  */
+// const processReportsToTableData = (reports: Report[]): TableData[] => {
+//   // Buat salinan lalu sortir berdasarkan created_at Descending (Terbaru ke Terlama)
+//   const sortedReports = [...reports].sort((a, b) =>
+//     new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+//   );
 
-  // Mapping dan menambahkan nomor urut (no)
-  return sortedReports.map((report, index) => ({
-    no: index + 1, // Nomor urut yang sudah diurutkan dari 1 hingga N
-    kodeTiket: report.kode_tiket,
-    judul: report.title,
-    deskripsi: report.description,
-    proses: report.proses,
-    status: report.status,
-    report_id: report.report_id,
-  }));
-};
+//   // Mapping dan menambahkan nomor urut (no) dimulai dari 1
+//   return sortedReports.map((report, index) => ({
+//     no: index + 1,
+//     kodeTiket: report.kode_tiket,
+//     judul: (report as any).title ?? (report as any).judul ?? "",
+//     deskripsi: (report as any).description ?? (report as any).deskripsi ?? "",
+//     proses: (report as any).proses ?? "",
+//     status: (report as any).status ?? "",
+//     report_id: report.report_id,
+//   }));
+// };
 
 // --- 4. KOMPONEN UTAMA ---
 
 export default function TableLaporan() {
   // isDescending: true berarti NO terbesar (NO yang paling baru/kecil) berada di atas (Descending)
-  const [isDescending, setIsDescending] = useState<boolean>(false);
+  const [isDescending, setIsDescending] = useState<boolean>(true);
   const [search, setSearch] = useState<string>("");
   const [tableData, setTableData] = useState<TableData[]>([]);
 
@@ -50,12 +50,19 @@ export default function TableLaporan() {
         });
         const data: Report[] = await response.json();
 
-
-        // Proses data (urutkan berdasarkan waktu dan tambahkan NO)
-        const processedData = processReportsToTableData(data);
-        setTableData(processedData);
-
-        console.log("Data laporan fetched and processed:", processedData);
+        // Jangan gunakan processReportsToTableData yang melakukan sorting.
+        // Gunakan urutan dari server (tanpa sort) dan tambahkan nomor urut di client.
+        const processedDataWithoutSort = data.map((report, index) => ({
+          no: index + 1,
+          kodeTiket: report.kode_tiket,
+          judul: (report as any).title ?? (report as any).judul ?? "",
+          deskripsi: (report as any).description ?? (report as any).deskripsi ?? "",
+          proses: (report as any).proses ?? "",
+          status: (report as any).status ?? "",
+          report_id: report.report_id,
+        }));
+        setTableData(processedDataWithoutSort);
+        console.log("Data laporan fetched and processed (no sort):", processedDataWithoutSort);
       } catch (error) {
         console.error("Error fetching laporan data:", error);
       }

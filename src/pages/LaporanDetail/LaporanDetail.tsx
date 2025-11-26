@@ -76,6 +76,7 @@ function PhotoAttachment({ id }: { id: number }) {
               alt="Lampiran Foto"
               className="w-32 h-32 object-cover rounded-md"
             />
+
           </div>
         ))
       )}

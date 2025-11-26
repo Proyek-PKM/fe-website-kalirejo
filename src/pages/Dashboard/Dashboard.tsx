@@ -56,7 +56,7 @@ interface StatisticCardProps {
 
 const StatisticCard: FC<StatisticCardProps> = ({ title, value, icon: Icon, color }) => {
   return (
-    <div className="flex flex-col bg-white rounded-xl shadow-lg p-6 border-t-4" style={{ borderColor: color }}>
+    <div className="flex flex-col bg-white rounded-xl  p-6 " style={{ borderColor: color }}>
       <div className="flex justify-between items-start mb-4">
         <h3 className="text-lg font-medium text-gray-500 uppercase">{title}</h3>
         <div className={`p-2 rounded-full`} style={{ backgroundColor: `${color}1A`, color: color }}>
@@ -105,42 +105,32 @@ const CustomTooltip: FC<any> = ({ active, payload, label }) => {
   return null;
 };
 
-// Komponen Grafik menggunakan Recharts
 const ReportChart: FC = () => {
-  // Tambahkan key 'id' dan 'fillColor' untuk Recharts
   const chartData = STATS_DATA.map((item, index) => ({
     ...item,
     id: index,
     fillColor: item.color,
   }));
 
-  // Render komponen ReportChart menggunakan Recharts
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 mt-6">
+    <div className="bg-white rounded-xl  p-6 mt-6">
       <h2 className="text-xl font-semibold text-gray-800 mb-4">Grafik Distribusi Laporan</h2>
       <div className="w-full h-[300px]">
-        {/* ResponsiveContainer memastikan grafik menyesuaikan dengan ukuran div */}
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={chartData}
             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-            barCategoryGap="20%" // Jarak antar bar
+            barCategoryGap="20%" 
           >
-            {/* Garis Grid Horizontal yang lembut */}
             <CartesianGrid strokeDasharray="3 3" stroke="#F3F4F6" vertical={false} />
 
-            {/* Sumbu X (Label Status) */}
             <XAxis dataKey="label" stroke="#6B7280" axisLine={false} tickLine={false} />
 
-            {/* Sumbu Y (Nilai Laporan) */}
             <YAxis stroke="#6B7280" axisLine={false} tickLine={false} />
 
-            {/* Tooltip Kustom */}
             <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }} />
 
-            {/* Bar utama */}
             <Bar dataKey="value" radius={[10, 10, 0, 0]} barSize={50}>
-              {/* Iterasi untuk mengatur warna dan menambahkan efek shadow/gradien sederhana (melalui fill) */}
               {chartData.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
@@ -159,7 +149,7 @@ const ReportChart: FC = () => {
 
 const Dashboard: FC = () => {
   return (
-    <div className="flex flex-col p-9 bg-gray-50 min-h-screen">
+    <div className="flex flex-col p-9  min-h-screen">
       <header>
         <h1 className="text-3xl text-[#363636] font-semibold mb-4">Dashboard Desa</h1>
         <p className="text-[#7E7E7E] w-full md:w-[85%]">

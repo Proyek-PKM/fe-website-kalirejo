@@ -8,9 +8,15 @@ import InformasiDesa from "./pages/Informasi/Informasi";
 import LaporanDetail from "./pages/LaporanDetail/LaporanDetail";
 import RealtimeChat from "./pages/RealtimeChat/RealtimeChat";
 import Pengaturan from "./pages/Pengaturan/Pengaturan";
+import Login from "./pages/Login/Login";
+import EditInformasi from "./pages/Informasi/Edit/Informasi.edit";
 
 // Rute berbasis objek
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />,
+  },
   {
     path: "/",
     element: <DashboardLayout />,
@@ -22,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "informasi-desa",
         element: <InformasiDesa />,
+      },
+      {
+        path: "informasi-desa/edit/:id",
+        element: <EditInformasi />,
       },
       {
         path: "dashboard",
